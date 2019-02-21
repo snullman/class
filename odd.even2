@@ -1,0 +1,25 @@
+# show random generated odd or even number
+# allow user to indicate whether number is odd or even
+# press A for ODD
+# press B for EVEN
+# indicate whether right or wrong
+
+from microbit import *
+import random
+display.scroll("Hello!")
+# Press A for ODD, B for EVEN"
+number = (random.randint(1, 11))
+odd = (number % 2 == 1)
+even = (number % 2 == 0)
+while True:
+    display.show(number)
+    sleep(2000)
+    # if A is pressed and num is odd & B is pressed and num is even = correct
+    if button_a.is_pressed() and (number % 2 == 1):
+        display.show(Image.YES)
+    if button_b.is_pressed() and (number % 2 == 0):
+        display.show(Image.YES)
+    # all else is wrong
+    else:
+        display.show(Image.NO)
+display.clear()
