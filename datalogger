@@ -1,0 +1,19 @@
+# create a portable environmental data logger
+# collect temperature and compass heading at certain intervals
+# store it on microbit file
+
+from microbit import *
+
+while True:
+    with open('data.csv', 'w') as my_file:
+        my_file.write(("compass.heading")("temperature"))
+
+compass.heading()
+
+temperature()
+celsiusTemp = temperature()
+fahrenheitTemp = celsiusTemp * 9 / 5 + 32
+sleep(5000)
+ch = compass.heading()
+t = temperature
+print((t, ch))
